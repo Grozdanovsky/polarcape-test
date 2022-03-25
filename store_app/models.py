@@ -11,13 +11,6 @@ class Adress(models.Model):
     def __str__(self) -> str:
         return f'{self.street_and_number}, {self.postal_code}, {self.city}, {self.country}'
 
-class Customer(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    email = models.EmailField()
-    credit_card = models.CharField(max_length=16, validators=[MinLengthValidator(16)], blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    shipping_adress = models.OneToOneField(Adress, on_delete=models.CASCADE)
 
 
 class Product(models.Model):
@@ -44,6 +37,15 @@ class Product(models.Model):
 
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=1, choices=CATEGORY_CHOICES)
-    quantity = models.PositiveIntegerField(validators=[MinLengthValidator(1)])
+    quantity = models.PositiveIntegerField()
     size = models.CharField(max_length=2, choices=SIZE_CHOICES)
     price = models.FloatField()
+
+class Customer(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    credit_card = models.CharField(max_length=16, validators=[MinLengthValidator(16)], blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    shipping_adress = models.OneToOneField(Adress, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, blank=True)

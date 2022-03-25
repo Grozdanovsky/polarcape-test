@@ -55,7 +55,7 @@ class CusomerList(APIView):
 class CustomerDetail(APIView):
 
     def get(self,request,pk):
-        customer = get_object_or_404(Customer.objects.select_related('shipping_adress').all(), pk=pk)
+        customer = get_object_or_404(Customer.objects.select_related('shipping_adress').prefetch_related('products').all(), pk=pk)
         serializer = CustomerSerializer(customer)
         return Response(serializer.data)
 

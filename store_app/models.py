@@ -40,6 +40,10 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField()
     size = models.CharField(max_length=2, choices=SIZE_CHOICES)
     price = models.FloatField()
+    customer = models.ManyToManyField('Customer', through='CustomerProduct')
+    
+    # def __str__(self) -> str:
+    #     return f'{self.name}, {self.category}, {self.price} '
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=255)
@@ -48,4 +52,12 @@ class Customer(models.Model):
     credit_card = models.CharField(max_length=16, validators=[MinLengthValidator(16)], blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     shipping_adress = models.OneToOneField(Adress, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product, blank=True)
+    products = models.ManyToManyField(Product, through= 'CustomerProduct', related_name='products')
+
+    # def __str__(self) -> str:
+    #     return f'{self.first_name} {self.last_name}'
+
+
+class CustomerProduct(models.Model):
+    customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
+    products = models.ForeignKey(Product, on_delete=models.CASCADE)

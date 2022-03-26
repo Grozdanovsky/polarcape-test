@@ -1,7 +1,9 @@
+from pprint import pprint
 import re
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from django_filters.rest_framework import DjangoFilterBackend
+from pymysql import NULL
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.filters import OrderingFilter
@@ -27,7 +29,14 @@ class CusomerList(APIView):
 
     def post(self, request):
         credit_card = request.data['credit_card']
-        if credit_card.isdigit() and credit_card.startswith('4' or '5' or '6') and not re.search(r'(.)\1\1\1', credit_card):
+        pprint(credit_card)
+        if credit_card == None:
+            serializer = CustomerSerializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        elif  credit_card.isdigit() and credit_card.startswith('4' or '5' or '6') and not re.search(r'(.)\1\1\1', credit_card) :
             serializer = CustomerSerializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             serializer.save()

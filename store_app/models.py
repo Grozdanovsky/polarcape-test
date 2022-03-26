@@ -12,7 +12,6 @@ class Adress(models.Model):
         return f'{self.street_and_number}, {self.postal_code}, {self.city}, {self.country}'
 
 
-
 class Product(models.Model):
     CATEGORY_T = 'T'
     CATEGORY_P = 'P'
@@ -41,9 +40,6 @@ class Product(models.Model):
     size = models.CharField(max_length=2, choices=SIZE_CHOICES)
     price = models.FloatField()
     customer = models.ManyToManyField('Customer', through='CustomerProduct')
-    
-    # def __str__(self) -> str:
-    #     return f'{self.name}, {self.category}, {self.price} '
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=255)
@@ -53,10 +49,6 @@ class Customer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     shipping_adress = models.OneToOneField(Adress, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product, through= 'CustomerProduct', related_name='products')
-
-    # def __str__(self) -> str:
-    #     return f'{self.first_name} {self.last_name}'
-
 
 class CustomerProduct(models.Model):
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE)

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
-from .models import Adress,Customer, CustomerProduct,Product
+from .models import Adress,Customer,Product
 
 class AdressSerializer(serializers.ModelSerializer):
 
@@ -36,13 +36,3 @@ class CustomerSerializer(WritableNestedModelSerializer,
         customer,created = Customer.objects.update_or_create(first_name = validated_data.pop('first_name'),last_name = validated_data.pop('last_name'),email = validated_data.pop('email'),
                               credit_card = validated_data.pop('credit_card') ,shipping_adress=shipping_adress)
         return customer
-
-
-
-
-class CustomerProductsSerializer(serializers.ModelSerializer):
-
-
-    class Meta:
-        model = CustomerProduct
-        fields = ['id','customer','products']

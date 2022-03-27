@@ -17,7 +17,7 @@
     -PUT store/customers/int (update на еден customer)<br />
 
     -GET store/products (прикажување на сите продукти, со можност за филтрирање според цена, според категорија, според големина и можност за сите заедно.)<br />
-        http://127.0.0.1:8000/store/products/?category=T&ordering=price&size=M / пример за филтер 
+        http://127.0.0.1:8000/store/products/?category=T&ordering=price&size=M / пример за филтер:<br /> 
     -POST store/products (додавање на продукт)
 
     -GET store/products/int (прикажување на еден продукт)<br />

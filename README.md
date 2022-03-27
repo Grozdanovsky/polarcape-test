@@ -4,13 +4,13 @@
 
 
 потребни инсталации во терминал:
-    -pip install django
-    -pip install django-debug-toolbar
-    -pip install drf-nested-routers
-    -pip install psycopg2
-    -pip install djangorestframework
-    -pip install django-filter
-    -pip install drf-writable-nested
+    -pip install django<br />
+    -pip install django-debug-toolbar<br />
+    -pip install drf-nested-routers<br />
+    -pip install psycopg2<br />
+    -pip install djangorestframework<br />
+    -pip install django-filter<br />
+    -pip install drf-writable-nested<br />
     -pip install django-routers
 
 1. Направете датабаза со име store_app во postgres.

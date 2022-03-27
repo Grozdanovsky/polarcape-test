@@ -1,0 +1,43 @@
+Продукт модел пример:
+
+{
+    "id": 16,
+    "name": "Reebok",
+    "category": "T",
+    "quantity": 100,
+    "size": "L",
+    "price": 325.0
+}
+
+Customer модел пример ("products": [] е задолжително при креаирање на customer но треба да биде празно бидејќи имаме посебни рути за додавање на продукти)
+{
+    "id": 34,
+    "first_name": "Filip",
+    "last_name": "Gichevski",
+    "email": "filip.gichevski@gmail.com",
+    "credit_card": "4512345678987654",
+    "created_at": "2022-03-25T17:56:15.727599Z",
+    "shipping_adress": {
+        "id": 13,
+        "street_and_number": "Vlaevska 102",
+        "postal_code": "1000",
+        "city": "Skopje",
+        "country": "Macedonia"
+        },
+    "products": []
+}
+
+Додавање продукт на customer модел пример:
+http://127.0.0.1:8000/store/addProductToCustomer/
+
+{
+    "customer" : 42,
+    "product" : 2
+}
+
+Бришење продукт на customer:
+http://127.0.0.1:8000/store/deleteProductFromCustomer/42 (овде се праќа id на customer, а во body се праќа id на продуктот)
+
+{
+    "product_id" : 2
+}

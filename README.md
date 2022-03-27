@@ -12,9 +12,9 @@
     -GET store/customers (прикажување на сите customers)
     -POST store/customers (додавање customers)
 
-    -GET store/customers/int (прикажување на еден customer)
-    -DELETE store/customers/int (бришење на еден customer)
-    -PUT store/customers/int (update на еден customer)
+    -GET store/customers/int (прикажување на еден customer)_ 
+    -DELETE store/customers/int (бришење на еден customer)__
+    -PUT store/customers/int (update на еден customer)<br />
 
     -GET store/products (прикажување на сите продукти, со можност за филтрирање според цена, според категорија, според големина и можност за сите заедно.)
         http://127.0.0.1:8000/store/products/?category=T&ordering=price&size=M / пример за филтер 

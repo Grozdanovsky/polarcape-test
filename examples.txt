@@ -11,14 +11,14 @@
 
 Customer модел пример ("products": [] е задолжително при креаирање на customer но треба да биде празно бидејќи имаме посебни рути за додавање на продукти)
 {
-    "id": 34,
-    "first_name": "Filip",
-    "last_name": "Gichevski",
-    "email": "filip.gichevski@gmail.com",
+  
+    "first_name": "Viktor",
+    "last_name": "Grozdanovski",
+    "email": "vg.97@gmail.com",
     "credit_card": "4512345678987654",
     "shipping_adress": {
-        "id": 13,
-        "street_and_number": "Vlaevska 102",
+ 
+        "street_and_number": "Skopje 100",
         "postal_code": "1000",
         "city": "Skopje",
         "country": "Macedonia"

@@ -1,12 +1,27 @@
 # polarcape-test
 
+потребна верзија на python: 3.10
+
+
+потребни инсталации во терминал:
+    -pip install django
+    -pip install django-debug-toolbar
+    -pip install drf-nested-routers
+    -pip install psycopg2
+    -pip install djangorestframework
+    -pip install django-filter
+    -pip install drf-writable-nested
+    -pip install django-routers
+
 1. Направете датабаза со име store_app во postgres.
 
-2. Променете ја лозинката во settings за датабазата пред да го стартувате проектот
+2. Променете ја лозинката во config/settings за датабазата пред да го стартувате проектот.
 
-3. Направете миграции.
+3. Направете миграции со командата py manage.py migrate.
 
-4. 
+4. Стартнете го проектот со py manage.py runserver.
+
+5. Проектот е готов за користење со празна датабаза. Следно можете да ги користите еднпоинтите подолу. Пример модели се достапни во examples.txt
 
 5. Достапни ендпоинти:
     -GET store/customers (прикажување на сите customers)<br />

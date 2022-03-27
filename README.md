@@ -3,7 +3,7 @@
 потребна верзија на python: 3.10
 
 
-потребни инсталации во терминал:
+потребни инсталации во терминал:<br />
     -pip install django<br />
     -pip install django-debug-toolbar<br />
     -pip install drf-nested-routers<br />

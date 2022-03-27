@@ -35,7 +35,7 @@ class CustomerList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        elif  credit_card.isdigit() and credit_card.startswith('4' or '5' or '6') and not re.search(r'(.)\1\1\1', credit_card) :
+        elif  credit_card.isdigit() and (credit_card.startswith('4') or credit_card.startswith('5') or credit_card.startswith('6')) and not re.search(r'(.)\1\1\1', credit_card) :
             serializer = CustomerSerializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             serializer.save()
@@ -56,8 +56,8 @@ class CustomerDetail(APIView):
 
     def put(self, request, pk):
         credit_card = request.data['credit_card']
-
-        if credit_card.isdigit() and credit_card.startswith('4' or '5' or '6') and not re.search(r'(.)\1\1\1', credit_card):
+        
+        if credit_card.isdigit() and (credit_card.startswith('4') or credit_card.startswith('5') or credit_card.startswith('6')) and not re.search(r'(.)\1\1\1', credit_card):
 
             customer = get_object_or_404(
                 Customer.objects.select_related('shipping_adress').all(), pk=pk)

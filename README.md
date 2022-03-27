@@ -12,8 +12,8 @@
     -GET store/customers (прикажување на сите customers)
     -POST store/customers (додавање customers)
 
-    -GET store/customers/int (прикажување на еден customer)_ 
-    -DELETE store/customers/int (бришење на еден customer)__
+    -GET store/customers/int (прикажување на еден customer)<br />
+    -DELETE store/customers/int (бришење на еден customer)<br />
     -PUT store/customers/int (update на еден customer)<br />
 
     -GET store/products (прикажување на сите продукти, со можност за филтрирање според цена, според категорија, според големина и можност за сите заедно.)

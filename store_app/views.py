@@ -17,7 +17,7 @@ from .response import response_message
 # Create your views here.
 
 
-class CusomerList(APIView):
+class CustomerList(APIView):
 
     def get(self, request):
         queryset = Customer.objects.select_related(
@@ -87,7 +87,7 @@ class ProductViewSet(ModelViewSet):
     ordering_fields = ['price']
 
 
-class AddProductToCusomer(APIView):
+class AddProductToCustomer(APIView):
 
     def post(self, request):
         try:
